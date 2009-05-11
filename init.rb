@@ -1,6 +1,12 @@
 require 'redmine'
+require 'dispatcher'
 require 'issue_vote_patch'
 require 'query_vote_patch'
+Dispatcher.to_prepare do
+  Issue.send(:include, IssueVotePatch)
+  Query.send(:include, QueryVotePatch)
+end
+
 require_dependency 'issues_vote_hook'
 
 Redmine::Plugin.register :redmine_vote do

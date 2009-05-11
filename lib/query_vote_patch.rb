@@ -7,5 +7,3 @@ module QueryVotePatch
 END
   end
 end
-
-Query.send :include, QueryVotePatch
