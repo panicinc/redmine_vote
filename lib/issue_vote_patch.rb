@@ -8,8 +8,3 @@ module IssueVotePatch
     end
   end  
 end
-
-# 
-# Issue.class_eval do
-#   acts_as_voteable
-# end
