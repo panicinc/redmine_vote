@@ -1,0 +1,9 @@
+de:
+  button_vote_up: hoch
+  button_vote_down: runter
+  label_votes: Abstimmung
+  field_votes_value: Abstimmung
+  permission_vote_issue : für ein Ticket abstimmen
+  permission_view_votes : Stimmenzahl ansehen
+  permission_view_voter : Liste der Abstimmenden ansehen
+  issue_voting : Ticketabstimmung
