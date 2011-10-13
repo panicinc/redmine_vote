@@ -4,3 +4,7 @@ en:
   button_vote_down: down
   label_votes: Votes
   field_votes_value: Votes
+  permission_vote_issue : vote issue
+  permission_view_votes : view votes
+  permission_view_voter : view voter list
+  issue_voting : issue voting
