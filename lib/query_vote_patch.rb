@@ -14,6 +14,7 @@ module QueryVotePatch
     base.class_eval do
       unloadable # Send unloadable so it will not be unloaded in development
 #      if can_vote?
+#      if Project.current.module_enabled?('issue_voting') and User.current._to?(:view_votes, Project.current)
         base.add_available_column(QueryColumn.new(:votes_value, :sortable => "#{Issue.table_name}.votes_value"))
 #      end
 

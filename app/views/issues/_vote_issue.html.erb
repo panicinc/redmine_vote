@@ -1,16 +1,20 @@
 <tr><td><b>
-  <% if authorize_for('issue_voting', 'view_votes') %>
+  <% if authorize_for('issues', 'view_votes') || authorize_for('issues', 'view_voter') || (authorize_for('issues', 'vote') && !@issue.voted_by_user?) %>
     <%= l :label_votes %>:</b></td><td>
+  <% end %>
+  <% if authorize_for('issues', 'view_votes') %>
     <% vv = @issue.votes_value.to_i %>
     <%= content_tag('span', vv, :class => (vv > 0 ? 'votes-positive': ( vv < 0 ? 'votes-negative' : ''))) %>
   <% end %>
   <% @project = @issue.project %>
-  <% if authorize_for('issue_voting', 'vote_issue') && !@issue.voted_by_user? %>
+  <% if authorize_for('issues', 'vote') && !@issue.voted_by_user? %>
     <%= link_to("", {:controller => 'issues', :action => 'vote', :id => @issue, :vote => :up}, :class => 'icon icon-vote-up') %>
     <%= link_to("", {:controller => 'issues', :action => 'vote', :id => @issue, :vote => :down}, :class => 'icon icon-vote-down') %>
   <% end %>
-  <% if authorize_for('issue_voting', 'view_voter') %>
-    <% unless @issue.votes.empty? %>(<%= link_to_function('View', 'Effect.toggle("voter_list", "blind");') %>)<% end %>
+  <% if authorize_for('issues', 'view_voter') %>
+    <% unless @issue.votes.empty? %>
+       <%= link_to_function( l(:label_viewvoter), 'Effect.toggle("voter_list", "blind");') %>
+    <% end %>
     <div id="voter_list" style="display:none">
     <% @issue.votes.sort_by{|v| v.user.name}.each do |vote| -%>
       <%= content_tag('span', vote.user.name, :class => (vote.vote ? 'votes-positive' : 'votes-negative')) %><br />

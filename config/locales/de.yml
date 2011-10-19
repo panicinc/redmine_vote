@@ -6,4 +6,5 @@ de:
   permission_vote_issue : für ein Ticket abstimmen
   permission_view_votes : Stimmenzahl ansehen
   permission_view_voter : Liste der Abstimmenden ansehen
-  issue_voting : Ticketabstimmung
+  project_module_issue_voting : Ticketabstimmung
+  label_viewvoter: Liste der Abstimmenden 

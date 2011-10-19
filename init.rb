@@ -15,9 +15,9 @@ Redmine::Plugin.register :redmine_vote do
   description 'Issue Vote Plugin'
   version '0.0.3'
   project_module :issue_voting do
-    permission :vote_issue, {:issue_voting => :vote_issue}, :require => :loggedin
-    permission :view_votes, {:issue_voting => :view_votes}, :require => :loggedin
-    permission :view_voter, {:issue_voting => :view_voter}, :require => :loggedin
+    permission :vote_issue, {:issues => :vote}, :require => :loggedin
+    permission :view_votes, {:issues => :view_votes}, :require => :loggedin
+    permission :view_voter, {:issues => :view_voter}, :require => :loggedin
   end
 end
 

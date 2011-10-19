@@ -7,4 +7,5 @@ en:
   permission_vote_issue : vote issue
   permission_view_votes : view votes
   permission_view_voter : view voter list
-  issue_voting : issue voting
+  project_module_issue_voting : issue voting
+  label_viewvoter: view voter

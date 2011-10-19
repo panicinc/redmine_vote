@@ -2,7 +2,11 @@ require 'redmine'
 require_dependency 'issues_controller' 
 
 class IssuesController < ApplicationController
-  skip_before_filter :authorize, :only => [:vote_issue]
+  skip_before_filter :authorize, :only => [:vote]
+  before_filter :authorize, :except => [ :vote ]
+
+  unloadable
+
   def vote
     find_issue
     authorize
