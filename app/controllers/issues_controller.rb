@@ -3,7 +3,9 @@ require_dependency 'issues_controller'
 
 class IssuesController < ApplicationController
   skip_before_filter :authorize, :only => [:vote]
-  before_filter :authorize, :except => [ :vote ]
+
+# This needs to be commented out or else I get a 403 error in our installation
+#  before_filter :authorize, :except => [ :vote ]
 
   unloadable
 
