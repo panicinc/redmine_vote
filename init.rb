@@ -1,12 +1,6 @@
 require 'redmine'
-require 'dispatcher'
 require 'issue_vote_patch'
 require 'query_vote_patch'
-Dispatcher.to_prepare do
-  Issue.send(:include, IssueVotePatch)
-  Query.send(:include, QueryVotePatch)
-end
-
 require_dependency 'issues_vote_hook'
 
 Redmine::Plugin.register :redmine_vote do
@@ -18,7 +12,6 @@ Redmine::Plugin.register :redmine_vote do
     permission :vote_issue, {:issues => :vote}, :require => :loggedin
     permission :multiple_vote_issue, {:issues => :multiple_vote}, :require => :loggedin
     permission :view_votes, {:issues => :view_votes}, :require => :loggedin
-    permission :view_voter, {:issues => :view_voter}, :require => :loggedin
   end
 end
 

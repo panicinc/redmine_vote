@@ -1,10 +1,6 @@
-require 'vote'
+require File.join(File.dirname(__FILE__), '../app/models/vote')
 require 'acts_as_voteable'
 
-module IssueVotePatch
-  def self.included(base)
-    base.class_eval do
-      acts_as_voteable
-    end
-  end  
+Issue.class_eval do
+  acts_as_voteable
 end

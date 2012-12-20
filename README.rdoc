@@ -1,3 +1,7 @@
 = vote
 
-Description goes here
+Vote plugin for Redmine - powered by rails3.
+
+This plugin is the result of several other people'swork. We've added the ability for a user to cast multiple 
+votes so our support staff can track requests.
+
