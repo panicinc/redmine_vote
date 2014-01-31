@@ -3,3 +3,4 @@
 This plugin is the result of several other people's work. We've added the ability for a user to cast multiple 
 votes so our support staff can track requests.
 
+If you add improvements or fix bugs please send us a pull request.
