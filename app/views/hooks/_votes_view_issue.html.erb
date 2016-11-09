@@ -1,0 +1,16 @@
+<% if authorize_for('issues', 'view_votes') || authorize_for('issues', 'view_voter') || (authorize_for('issues', 'vote') && !@issue.voted_by_user?) || authorize_for('issues', 'multiple_vote') %>
+
+  <% if authorize_for('issues', 'view_votes') %>
+    <% vv = @issue.votes_value %>
+    <% output = "#{vv} " %>
+
+    <% if (authorize_for('issues', 'vote') && !@issue.voted_by_user?) || authorize_for('issues', 'multiple_vote') %>
+      <% output += link_to("", { :controller => 'vote', :action => 'up',   :id => @issue }, :class => 'icon icon-vote-up'  , :method => 'post') %>
+      <% output += link_to("", { :controller => 'vote', :action => 'down', :id => @issue }, :class => 'icon icon-vote-down', :method => 'post') %>
+    <% end %>
+
+    <%= content_tag 'div', content_tag('div', l(:label_votes) + ":", :class => 'label') + content_tag('div', output.html_safe, :class => 'value'), :class => 'attribute'%>
+
+  <% end %>
+
+<% end %>
